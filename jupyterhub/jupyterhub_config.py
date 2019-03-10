@@ -10,6 +10,10 @@ c.JupyterHub.authenticator_class = GoogleOAuthenticator
 import os
 import dockerspawner
 
+admin_email = os.environ.get('ADMIN_EMAIL', None)
+if admin_email:
+    c.Authenticator.admin_users = {admin_email}
+
 c.JupyterHub.spawner_class = 'dockerspawner.DockerSpawner'
 c.DockerSpawner.image = os.environ['DOCKER_JUPYTER_CONTAINER']
 network_name = os.environ['DOCKER_NETWORK_NAME']
