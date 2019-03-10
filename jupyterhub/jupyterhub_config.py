@@ -26,6 +26,10 @@ c.DockerSpawner.notebook_dir = notebook_dir
 c.DockerSpawner.format_volume_name = dockerspawner.volumenamingstrategy.escaped_format_volume_name
 c.DockerSpawner.volumes = { 'jupyterhub-user-{username}': notebook_dir }
 
+print_data_volume = os.environ.get('PRINTS_MEDIA_VOLUME', '/print-data')
+c.DockerSpawner.read_only_volumes = {
+    print_data_volume : '/print-data'
+}
 # Other stuff
 c.Spawner.cpu_limit = 1
 c.Spawner.mem_limit = '10G'
