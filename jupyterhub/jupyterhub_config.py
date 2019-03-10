@@ -15,6 +15,7 @@ c.DockerSpawner.image = os.environ['DOCKER_JUPYTER_CONTAINER']
 network_name = os.environ['DOCKER_NETWORK_NAME']
 c.DockerSpawner.network_name = network_name
 c.DockerSpawner.use_internal_ip = True
+c.DockerSpawner.extra_host_config = {'network_mode': network_name}
 # See https://github.com/jupyterhub/dockerspawner/blob/master/examples/oauth/jupyterhub_config.py
 c.JupyterHub.hub_ip = os.environ['HUB_IP']
 
