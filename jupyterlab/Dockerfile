@@ -17,3 +17,5 @@ RUN pip install -r requirements.txt
 # Jupyter labextensions
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install jupyter-matplotlib
+RUN jupyter labextension install ipyvolume
+RUN jupyter labextension install jupyter-threejs
