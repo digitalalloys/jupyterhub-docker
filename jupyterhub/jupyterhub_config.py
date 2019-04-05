@@ -36,7 +36,7 @@ c.DockerSpawner.volumes = {
 print_data_volume = os.environ.get('PRINTS_MEDIA_VOLUME', 'print-data')
 print_data_cache_volume = os.environ.get('PRINT_DATA_CACHE_VOLUME', 'print-data-cache')
 c.DockerSpawner.read_only_volumes = {
-    print_data_volume : '/print-data',
+    print_data_volume: '/print-data',
     print_data_cache_volume: '/print-data-cache',
 }
 # Other stuff
