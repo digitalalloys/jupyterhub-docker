@@ -1,0 +1,42 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: digitalalloys/build
+    working_directory: /app
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Set version
+          command: |
+            if [ $CIRCLE_TAG ]; then
+              version=$CIRCLE_TAG
+            else
+              version=unknown
+            fi
+            echo $version > VERSION
+            echo Version $version
+      - run:
+          name: Build jupyterlab docker image
+          command: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker-compose build jupyterlab
+      - deploy:
+          name: Push jupyterlab docker image
+          command: |
+            version_tag=`head -n 1 VERSION`
+            docker tag digitalalloys/jupyterlab digitalalloys/jupyterlab:$version_tag
+            docker push digitalalloys/jupyterlab:$version_tag
+            docker push digitalalloys/jupyterlab:latest
+
+workflows:
+  version: 2
+  build-workflows:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

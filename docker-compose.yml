@@ -13,8 +13,6 @@ services:
     networks:
       - webgateway
       - default
-    env_file:
-      - .env
     labels:
       - "traefik.enable=true"
       - "traefik.port=8000"
