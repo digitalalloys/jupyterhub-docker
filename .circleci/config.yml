@@ -32,9 +32,9 @@ jobs:
 
 workflows:
   version: 2
-    build-workflows:
-      jobs:
-        - build:
+  build-workflows:
+    jobs:
+      - build:
           filters:
             tags:
               only: /^v.*/
