@@ -19,3 +19,5 @@ RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 RUN jupyter labextension install jupyter-matplotlib
 RUN jupyter labextension install ipyvolume
 RUN jupyter labextension install jupyter-threejs
+RUN jupyter labextension install @jupyterlab/git
+RUN jupyter serverextension enable --py jupyterlab_git
