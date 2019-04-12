@@ -1,5 +1,7 @@
 FROM jupyterhub/jupyterhub:0.9.4
 
+RUN apt-get install -y git openssh-client
+
 WORKDIR /app
 
 COPY jupyterhub_config.py .
