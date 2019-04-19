@@ -23,3 +23,4 @@ RUN jupyter labextension install ipyvolume
 RUN jupyter labextension install jupyter-threejs
 RUN jupyter labextension install @jupyterlab/git
 RUN jupyter serverextension enable --py jupyterlab_git
+RUN jupyter labextension install @lckr/jupyterlab_variableinspector
