@@ -40,8 +40,8 @@ c.DockerSpawner.read_only_volumes = {
     print_data_cache_volume: '/print-data-cache',
 }
 # Other stuff
-c.Spawner.cpu_limit = 1
-c.Spawner.mem_limit = '10G'
+c.Spawner.cpu_limit = int(os.environ.get('CPU_LIMIT', 1))
+c.Spawner.mem_limit = os.environ.get('MEM_LIMIT', '10G')
 
 
 ## Services
