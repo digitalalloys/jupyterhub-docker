@@ -9,6 +9,7 @@ RUN apt-get update && \
     nodejs \
     git \
     openssh-client \
+    libgeos-dev \
     && apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
